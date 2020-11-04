@@ -1,0 +1,49 @@
+﻿
+
+@{
+    ViewBag.Title = "ManagerHomePage";
+}
+
+<h2>Manager Home Page</h2>
+
+@if (TempData["ManagerId"] != null)
+{
+    <h4>Hello @TempData["FirstName"].ToString()</h4>
+}
+
+<br />
+<br />
+
+<div class="row text-center">
+    <div class="col-md-4">
+
+        <h2>Appointments</h2>
+        <p>
+            <button class="btn btn-light btn-md">@Html.ActionLink("Appointments", "Index", "Appointments")</button>
+        </p>
+
+
+    </div>
+
+    <div class="col-md-4">
+        <h2>Tenants</h2>
+        <p>
+            <button class="btn btn-light btn-md">@Html.ActionLink("Tenants", "IndexManager", "Tenants")</button>
+        </p>
+    </div>
+
+    <div class="col-md-4">
+
+        <h2>Buildings</h2>
+        <p>
+            <button class="btn btn-light btn-md">@Html.ActionLink("Buildings", "Index", "Buildings")</button>
+        </p>
+    </div>
+
+    <br />
+    <br />
+</div>
+
+
+
+

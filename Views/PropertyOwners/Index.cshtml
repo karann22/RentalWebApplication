@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PropertyRentalManagement_FinalProject.Models.PropertyOwner>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerUsername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerPassword)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerUsername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerPassword)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OwnerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OwnerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OwnerId })
+        </td>
+    </tr>
+}
+
+</table>

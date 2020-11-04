@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .jumbotron {
+        /*opacity: .2;*/
+        background-color: rgba(128, 128, 0, 0.30);
+        color: darkred;
+    }
+
+    .col-md-4 {
+        /*border: yellowgreen 3px solid;*/
+        border-radius: 3px;
+        color: darkred;
+;
+    }
+
+    .container-fluid {
+        font-size: 22px;
+        background-color: rgba(128, 128, 0, 0.30);
+        color: darkred;
+    }
+    .btn {
+        background-color: rgba(128, 128, 0, 0.30);
+    }
+    a {
+        color: wheat;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    a:hover {
+        font-size: 20px;
+        color: papayawhip;
+    }
+    .
+</style>
+
+<div class="jumbotron text-center">
+    <h1>Montreal Luxury Apartments</h1>
+    <p class="lead">A website where you can rent or lease your house of dreams! </p>
+    <p class="lead">Come Vist us soon! </p>
+    <br />
+    <br />
+</div>
+<div class="container-fluid text-center"><p>Why rent when you can buy?</p><p>The Home of your dreams !</p></div>
+
+<br />
+<br />
+
+<div class="row text-center">
+    <div class="col-md-4">
+
+        <h1>Tenant</h1>
+        <p>
+            <button class="btn btn-light btn-lg">@Html.ActionLink("Existing User", "TenantLogin", "Tenants")</button>
+        </p>
+        <p>
+            <button class="btn btn-light btn-lg">@Html.ActionLink("New User", "Create", "Tenants")</button>
+        </p>
+        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+
+    </div>
+
+    <div class="col-md-4">
+
+        <h1>Owner</h1>
+        <p>
+            <button class="btn btn-light btn-lg">@Html.ActionLink("Owner", "OwnerLogin", "PropertyOwners")</button>
+        </p>
+        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+    </div>
+    <div class="col-md-4">
+        <h1>Manager</h1>
+        <p>
+            <button class="btn btn-light btn-lg">@Html.ActionLink("Existing User", "ManagerLogin", "Managers")</button>
+        </p>
+        <p>
+            <button class="btn btn-light btn-lg">@Html.ActionLink("New User", "Create", "Managers")</button>
+        </p>
+        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+    </div>
+</div>

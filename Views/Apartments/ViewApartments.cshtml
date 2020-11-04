@@ -1,0 +1,84 @@
+﻿@model IEnumerable<PropertyRentalManagement_FinalProject.Models.Apartment>
+
+@{
+    ViewBag.Title = "ViewApartments";
+}
+
+<h2>Apartments</h2>
+
+<br />
+<br />
+
+@using (Html.BeginForm("ViewApartments", "Apartments", FormMethod.Get))
+{
+    <div class="text-right">
+        <label>Size: </label>
+        @Html.TextBox("size")
+
+        <label>Min Range: </label>
+        @Html.TextBox("minrange")
+
+        <label>Max Range: </label>
+        @Html.TextBox("maxrange")
+
+        <input type="submit" value="Filter" />
+    </div>
+}
+
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Building.BuildingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApartmentNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Availability)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Building.BuildingName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ApartmentNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Size)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Utility)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Availability)
+    </td>
+
+</tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Buildings", "ViewTenantBuilding", "Buildings")
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PropertyRentalManagement_FinalProject.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (TempData["ManagerId"] != null)
+{
+    <h4>Hello @TempData["FirstName"].ToString()</h4>
+}
+
+<h2>Messages</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manager.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tenant.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manager.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenant.FirstName)
+            </td>
+            <td>
+                @Html.ActionLink("Reply", "Edit", new { id = item.AppointmentId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@if (TempData["ManagerId"] == null)
+{
+    <button type="button" class="btn btn-default" style="background-color: rgba(128, 128, 0, 0.30);">@Html.ActionLink("Back to Manager Homepage", "ManagerHomePage", "Managers")</button>
+}
+
+

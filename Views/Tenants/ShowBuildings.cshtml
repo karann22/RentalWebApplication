@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PropertyRentalManagement_FinalProject.Models.Building>
+
+@{
+    ViewBag.Title = "ShowBuildings";
+}
+
+<h2>Show Buildings</h2>
+
+@using (Html.BeginForm("ShowBuildings", "Tenants", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" value="Search by Address" />
+}
+
+<button type="button" class="btn btn-light btn-md text-right">@Html.ActionLink("Messages", "ViewMessages", "Appointments")</button>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BuildingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.ActionLink("View Apartments", "Index", "Apartments")
+            </td>
+        </tr>
+    }
+
+</table>

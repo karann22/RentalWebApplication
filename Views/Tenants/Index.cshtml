@@ -1,0 +1,72 @@
+﻿@model IEnumerable<PropertyRentalManagement_FinalProject.Models.Tenant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tenant Index</h2>
+
+@using (Html.BeginForm("Index", "Tenants", FormMethod.Get))
+{
+    <div class="text-right">
+        @Html.TextBox("searching")
+        <input type="submit" value="Search by First Name" />
+    </div>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenantUsername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenantPassword)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantPassword)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@if (TempData["OwnerId"] == null)
+{
+    <button type="button" class="btn btn-default " style="background-color: rgba(128, 128, 0, 0.30);">@Html.ActionLink("Back to Homepage", "OwnerProfile", "PropertyOwners")</button>
+}
+
+
+

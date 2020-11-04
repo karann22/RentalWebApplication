@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PropertyRentalManagement_FinalProject.Models.Building>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Buildings</h2>
+
+@if (TempData["ManagerId"] != null)
+{
+    <h4>Hello @TempData["FirstName"].ToString()</h4>
+}
+
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BuildingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditManager", new { id = item.BuildingId }) |
+                @Html.ActionLink("Details", "DetailsManager", new { id = item.BuildingId }) |
+                @Html.ActionLink("View Apartments", "Index", "Apartments")
+            </td>
+        </tr>
+    }
+
+</table>
+@if (TempData["ManagerId"] == null)
+{
+    <button type="button" class="btn btn-default" style="background-color: rgba(128, 128, 0, 0.30);">@Html.ActionLink("Back to Manager Homepage", "ManagerHomePage", "Managers")</button>
+}
+
+

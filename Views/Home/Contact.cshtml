@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>Contact Us</h2>
+
+<br />
+
+<style>
+    address {
+        font-size: 20px;
+    }
+</style>
+
+<address>
+    "WEB SERVER APPLICATION DEVELOPMENT II - FINAL PROJECT"
+    College LaSalle<br />
+    Montreal, QC<br />
+    <abbr title="Phone">P: XXXXXXXXXXX</abbr>
+</address>
+
+<br />
+
+
+@if (TempData["UserId"] != null)
+{
+    <address>
+        <strong>Email:</strong> <a href="../Appointments/Create">Click here!!</a><br />
+    </address>
+}
+@if(TempData["UserId"] == null)
+{
+<address>
+    <strong>Email:</strong> <a>help@luxuryapartments.ca</a><br />
+</address>
+}

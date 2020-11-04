@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "OwnerProfile";
+}
+
+<h2>Owner Profile</h2>
+
+@if(TempData["OwnerId"] != null)
+{
+    <h4>Welcome @TempData["OwnerUsername"].ToString()</h4>
+}
+
+<br />
+<br />
+
+
+<div class="row text-center">
+    <div class="col-md-3">
+
+        <h2>Potential Tenants</h2>
+        <p>
+            <button class="btn btn-light btn-md">@Html.ActionLink("List of Potential Tenants", "Index", "Tenants")</button>
+        </p>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <h2>Managers</h2>
+        <p>
+            <button class="btn btn-light btn-md">@Html.ActionLink("List of Managers", "Index", "Managers")</button>
+        </p>
+    </div>
+
+    <div class="col-md-3">
+
+        <h2>Buildings</h2>
+        <p>
+            <button class="btn btn-light btn-md">@Html.ActionLink("List of Buildings", "OwnerIndex", "Buildings")</button>
+        </p>
+    </div>
+
+    <div class="col-md-3">
+
+        <h2>Apartments</h2>
+        <p>
+            <button class="btn btn-light btn-md">@Html.ActionLink("List of Apartments", "OwnerIndex", "Apartments")</button>
+        </p>
+    </div>
+
+    <br />
+    <br />
+</div>
